@@ -1,7 +1,7 @@
 public class WordCapitalizer {
 
     public static void main(final String[] args) {
-        System.out.println(capitalize("WITHER SKELETON"));
+        System.out.println(capitalize("tHe QUIcK bROWn FOX jumped OveR tHe Lazy doG"));
     }
 
     /*
@@ -9,14 +9,17 @@ public class WordCapitalizer {
 
     Author: Lachlan Adamson
     */
-    public static String capitalize(final String input) {
-        final char[] output = input.toLowerCase().toCharArray();
-        final char[] upper = input.toUpperCase().toCharArray();
-        
-        for(int i = 0; i < output.length; i++)
-            if(i == 0 || output[i - 1] == ' ')
-                output[i] = upper[i];
+    public static String capitalize(final String in) {
+        // convert input to a lowercase char array
+        final char[] out = in.toLowerCase().toCharArray();
 
-        return new String(output);
+        // for each char, if it's the first in the array or has a space before it,
+        // convert it to the uppercase variant.
+        for(int i = 0; i < out.length; i++)
+            if(i == 0 || out[i - 1] == ' ')
+                out[i] = Character.toUpperCase(out[i]);
+        
+        // return stringified char array
+        return new String(out);
     }
 }
